@@ -6,13 +6,13 @@ jobs:
         runs-on: ubuntu-latest
         # runs-on: epitechcontent/epitest-docker
         steps:
-          - name: "checkout repository"
-          - run:
-            - uses: actions/checkout@v5
+          name: checkout_repository
+          run:
+            uses: actions/checkout@v5
         steps:
-          - run: ls -la
+          run: ls -la
         steps:
-          - run: grep main
+          run: grep main
         # steps:
         #   - name: compilation
         #   - run: make | annotate-errors.sh
