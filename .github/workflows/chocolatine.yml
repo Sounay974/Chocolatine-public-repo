@@ -8,6 +8,7 @@ on:
         "no-ga/"
 env:
   MIRROR_SSH_URL: "git@github.com:Sounay974/push_chocolatine.git"
+  MIRROR_SSH_URL_END: "Sounay974/push_chocolatine"
   EXECUTABLES: "chocolatine"
 
 jobs:
@@ -15,7 +16,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: check_mirror_and_repo
-          if: ${{ github.repository == env.MIRROR_SSH_URL}}
+          if: ${{ github.repository == env.MIRROR_SSH_URL_END}}
           run: exit 1
     check_compilation_and_coding_style:
         needs: check_repo
