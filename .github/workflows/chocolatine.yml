@@ -20,8 +20,8 @@ jobs:
     check_compilation_and_coding_style:
         needs: check_repo
         runs-on: ubuntu-latest
-        container:
-          image: epitechcontent/epitest-docker
+        # container:
+        #   image: epitechcontent/epitest-docker
         steps:
           - name: checkout_repository
             uses: actions/checkout@v5
@@ -36,6 +36,9 @@ jobs:
           needs: check_compilation_and_coding_style
           runs-on: ubuntu-latest
           steps:
+            - name: checkout_repository
+              uses: actions/checkout@v5
+
             - name: push_on_mirror
               uses: pixta-dev/repository-mirroring-action@v1
               with:
