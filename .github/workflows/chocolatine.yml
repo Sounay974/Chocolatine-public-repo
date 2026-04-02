@@ -28,6 +28,13 @@ jobs:
         steps:
           - name: checkout_repository
             uses: actions/checkout@v5
+            with:
+              fetch-depth: 0
+          - name: compile
+            run: make CC="epiclang"
+            timeout-minutes: 2
+          - name: clean
+            run: make clean
 
     run_tests:
       needs: check_compilation_and_coding_style
@@ -38,7 +45,7 @@ jobs:
           with:
             fetch-depth: 0
         - name: compile
-          run: make CC=epiclang
+          run: make CC="epiclang"
           timeout-minutes: 2
 
         - name: clean
