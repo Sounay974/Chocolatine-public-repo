@@ -15,7 +15,7 @@ LIBNAME	=	libmy.a
 
 CFLAGS	=	-I./include/ -I./printf/lib/my/
 
-CC	=	epiclang
+CC	=	clang
 
 FLAG	=	-g -g3 -ggdb -I./include/ -L./ -lmy -I./printf/lib/my/
 
