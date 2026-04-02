@@ -45,7 +45,7 @@ jobs:
           with:
             fetch-depth: 0
         - name: compile
-          run: make CC="epiclang"
+          run: make
           timeout-minutes: 2
 
         - name: clean
