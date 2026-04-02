@@ -9,7 +9,7 @@ SRC	  = $(wildcard ./src/*.c)
 
 OBJ	=	$(SRC:.c=.o)
 
-NAME	=	caca
+NAME	=	chocolatine
 
 LIBNAME	=	libmy.a
 
