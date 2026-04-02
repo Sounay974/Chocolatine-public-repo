@@ -22,6 +22,7 @@ jobs:
         runs-on: ubuntu-latest
         container:
           image: epitechcontent/epitest-docker
+
         steps:
           - name: checkout_repository
             uses: actions/checkout@v5
