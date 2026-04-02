@@ -17,8 +17,6 @@ jobs:
         - name: check_mirror_and_repo
           if: ${{ github.repository != env.MIRROR_SSH_URL}}
           run: exit 1
-          else:
-          run: echo "Repo ok"
     check_compilation_and_coding_style:
         needs: check_repo
         runs-on: ubuntu-latest
