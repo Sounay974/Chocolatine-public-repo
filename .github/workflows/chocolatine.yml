@@ -7,9 +7,19 @@ on:
       branches-ignores:
         "no-ga/"
 env:
-  MIRROR: "none"
+  MIRROR_SSH_URL: "git@github.com:EpitechPGE1-2025/G-DOP-200-RUN-2-1-chocolatine-14.git"
+  EXECUTABLES: "chocolatine"
 
 jobs:
+    check_repo:
+      steps:
+        - name: check_mirror_and_repo
+          run: |
+            if ${{ github.repository }} == $MIRROR_SHH_URL then
+              continue
+            else
+              exit 1
+            fi
     check_compilation_and_coding_style:
         runs-on: ubuntu-latest
         container:
