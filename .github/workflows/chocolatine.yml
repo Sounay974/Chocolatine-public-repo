@@ -23,6 +23,7 @@ jobs:
               exit 1
             fi
     check_compilation_and_coding_style:
+        needs: check_repo
         runs-on: ubuntu-latest
         container:
           image: epitechcontent/epitest-docker
