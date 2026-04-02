@@ -17,7 +17,7 @@ jobs:
         - name: check_mirror_and_repo
           run: |
             if ${{ github.repository }} == $MIRROR_SHH_URL then
-              continue
+              echo "same repo"
             else
               exit 1
             fi
