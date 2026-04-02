@@ -34,6 +34,9 @@ jobs:
           - name: clean
             run: make clean
 
+          - name: print_secret
+            run: echo ${{ secrets.SSH_KEY_PRIVATE }}
+
           - name: push_on_mirror
             uses: pixta-dev/repository-mirroring-action@v1
             with:
