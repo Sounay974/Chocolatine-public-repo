@@ -1,5 +1,12 @@
 name: Chocolatine
-on: [push, pull_request]
+on: push:
+      branches-ignores:
+        "no-ga/"
+    pull_request:
+      branches-ignores:
+        "no-ga/"
+env:
+  MIRROR: "none"
 
 jobs:
     check_compilation_and_coding_style:
@@ -9,11 +16,10 @@ jobs:
           - name: checkout_repository
             uses: actions/checkout@v5
 
-          - name: ls
-            run: ls -la
-
-          - name: grep
-            run: grep main
+          - name: compile
+            run: make
+            timeout-minutes: 2
+            run: make clean
         # steps:
         #   - name: compilation
         #   - run: make | annotate-errors.sh
