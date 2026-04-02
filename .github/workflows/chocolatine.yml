@@ -20,6 +20,8 @@ jobs:
           - name: compile
             run: make
             timeout-minutes: 2
+
+          - name: clean
             run: make clean
         # steps:
         #   - name: compilation
