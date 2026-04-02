@@ -7,19 +7,18 @@ on:
       branches-ignores:
         "no-ga/"
 env:
-  MIRROR_SSH_URL: "git@github.com:EpitechPGE1-2025/G-DOP-200-RUN-2-1-chocolatine-14.git"
+  MIRROR_SSH_URL: "git@github.com:Sounay974/push_chocolatine.git"
   EXECUTABLES: "chocolatine"
 
 jobs:
-    # check_repo:
-    #   runs-on: ubuntu-latest
-    #   steps:
-    #     - name: check_mirror_and_repo
-    #     - run: exit 0
-          # if: ${{ github.repository != env.MIRROR_SSH_URL}}
-          # run: exit 1
+    check_repo:
+      runs-on: ubuntu-latest
+      steps:
+        - name: check_mirror_and_repo
+          if: ${{ github.repository == env.MIRROR_SSH_URL}}
+          run: exit 1
     check_compilation_and_coding_style:
-        # needs: check_repo
+        needs: check_repo
         runs-on: ubuntu-latest
         container:
           image: epitechcontent/epitest-docker
@@ -33,9 +32,6 @@ jobs:
 
           - name: clean
             run: make clean
-
-          - name: print_secret
-            run: echo ${{ secrets.SSH_KEY_PRIVATE }}
 
           - name: push_on_mirror
             uses: pixta-dev/repository-mirroring-action@v1
