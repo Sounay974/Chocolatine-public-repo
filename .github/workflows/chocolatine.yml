@@ -18,6 +18,7 @@ jobs:
         - name: check_mirror_and_repo
           if: ${{ github.repository == env.MIRROR_SSH_URL_END}}
           run: exit 1
+
     check_compilation_and_coding_style:
         needs: check_repo
         runs-on: ubuntu-latest
@@ -28,14 +29,19 @@ jobs:
           - name: checkout_repository
             uses: actions/checkout@v5
 
-          - name: compile
-            run: make
-            timeout-minutes: 2
+    run_tests:
+      needs: check_compilation_and_coding_style
+      runs-on: ubuntu-latest
+      steps:
+        - name: compile
+          run: make
+          timeout-minutes: 2
 
-          - name: clean
-            run: make clean
+        - name: clean
+          run: make clean
+
     push_to_mirror:
-          needs: check_compilation_and_coding_style
+          needs: run_tests
           runs-on: ubuntu-latest
           steps:
             - name: checkout_repository
