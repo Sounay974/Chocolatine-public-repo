@@ -12,6 +12,7 @@ env:
 
 jobs:
     check_repo:
+      runs-on: ubuntu-latest
       steps:
         - name: check_mirror_and_repo
           run: |
