@@ -4,8 +4,10 @@
 ** File description:
 ** main
 */
+#include "my.h"
 
-int main()
+int main(void)
 {
+    my_putstr("hello world");
     return 0;
 }
