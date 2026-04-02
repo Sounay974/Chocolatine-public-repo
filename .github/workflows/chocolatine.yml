@@ -1,5 +1,6 @@
 name: Chocolatine
-on: push:
+on:
+    push:
       branches-ignores:
         "no-ga/"
     pull_request:
