@@ -7,7 +7,8 @@ on:
       branches-ignores:
         "no-ga/"
 env:
-  MIRROR_SSH_URL: "git@github.com:EpitechPGE1-2025/G-DOP-200-RUN-2-1-chocolatine-14.git"
+  MIRROR_SSH_URL: "https://github.com/EpitechPGE1-2025/G-DOP-200-RUN-2-1-chocolatine-14.git"
+  MIRROR_SSH: "git@github.com:EpitechPGE1-2025/G-DOP-200-RUN-2-1-chocolatine-14.git"
   EXECUTABLES: "chocolatine"
 
 jobs:
@@ -38,4 +39,4 @@ jobs:
             uses: pixta-dev/repository-mirroring-action@v1
             with:
               target_repo_url: ${{ env.MIRROR_SSH_URL }}
-              ssh_private_key: ${{ secrets.GITLAB_SSH_PRIVATE_KEY }}
+              ssh_private_key: ${{ env.MIRROR_SSH }}
