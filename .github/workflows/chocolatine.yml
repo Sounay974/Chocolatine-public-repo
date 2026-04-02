@@ -15,6 +15,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: check_mirror_and_repo
+        - run: exit 0
           # if: ${{ github.repository != env.MIRROR_SSH_URL}}
           # run: exit 1
     check_compilation_and_coding_style:
