@@ -12,7 +12,8 @@ env:
 jobs:
     check_compilation_and_coding_style:
         runs-on: ubuntu-latest
-        # runs-on: epitechcontent/epitest-docker
+        container:
+          image: epitechcontent/epitest-docker
         steps:
           - name: checkout_repository
             uses: actions/checkout@v5
