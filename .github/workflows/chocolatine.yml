@@ -2,10 +2,10 @@ name: Chocolatine
 on:
     push:
       branches-ignores:
-        "no-ga/"
+        "no-ga/**"
     pull_request:
       branches-ignores:
-        "no-ga/"
+        "no-ga/**"
 env:
   MIRROR_SSH_URL: "git@github.com:Sounay974/push_chocolatine.git"
   MIRROR_SSH_URL_END: "Sounay974/push_chocolatine"
@@ -33,8 +33,13 @@ jobs:
           - name: compile
             run: make CC="epiclang"
             timeout-minutes: 2
-          - name: fclean
-            run: make fclean
+          - name: check_executable
+            run: |
+              if [[ ls | grep ${{ env.EXECUTABLES }} ]] then
+                echo "executable create"
+              else
+                exit 1
+              fi
 
     run_tests:
       needs: check_compilation_and_coding_style
