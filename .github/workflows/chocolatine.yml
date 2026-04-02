@@ -35,7 +35,7 @@ jobs:
             timeout-minutes: 2
           - name: check_executable
             run: |
-              if [[ ls | grep ${{ env.EXECUTABLES }} ]] then
+              if ls | grep ${{ env.EXECUTABLES }}; then
                 echo "executable create"
               else
                 exit 1
