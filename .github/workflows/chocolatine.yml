@@ -33,6 +33,9 @@ jobs:
           - name: compile
             run: make CC="epiclang"
             timeout-minutes: 2
+          - name: check_coding_style
+            run: |
+                
           - name: check_executable
             run: |
               if ls | grep ${{ env.EXECUTABLES }}; then
